@@ -8,6 +8,7 @@ from company.models import Company
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True, blank=True)
+    avatar = models.ImageField(upload_to='avatars/')
 
     def __str__(self):
         return f"{self.user.first_name}'s profile"
