@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block tytul %}Main page{% endblock %}
+{% block strona %}
+Main page
+{% if companys|length == 0 %}
+        <h2>No companys asign</h2>
+    {% else %}
+        {% for company in companys %}
+            <a href="{% url 'company' company.id %}"><div class="card">
+                <h5 class="card-title">{{company}}</h5>
+            </div>
+            </a>
+        {% endfor %}
+    {%endif%}
+
+
+
+{% endblock %}

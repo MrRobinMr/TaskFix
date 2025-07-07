@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block tytul %}Profile edit{% endblock %}
+{% block strona %}
+<button onclick="history.back()">🔙 Back</button>
+
+<div class="card" style="width: 20rem; margin-top: 30px; margin-left: 50px; padding: 1rem;">
+    <h5 class="card-title">Account data</h5>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>First name:</b> {{user.first_name}}</li>
+            <li class="list-group-item"><b>Surname:</b> {{user.last_name}}</li>
+            <li class="list-group-item"><b>Email:</b> {{user.email}}</li>
+            <li class="list-group-item"><b>Company:</b> {{company}}</li>
+        </ul>
+        <div class="d-flex">
+            <a href="{% url 'password_change' %}" class="btn btn-primary me-2">Change password</a>
+            <a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
