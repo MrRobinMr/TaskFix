@@ -14,3 +14,23 @@
 .navbar-custom .nav-link:hover {
   text-decoration: underline;
 }
+.my-list {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    height: 100px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+}
+.my-list:hover {
+    background-color: #3366ff;
+}
+.company-logo {
+    height: 5rem;
+    width: auto;
+    border-radius: 6px;
+    object-fit: contain;
+    margin: 10px;
+}

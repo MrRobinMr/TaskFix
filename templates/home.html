@@ -2,13 +2,15 @@
 
 {% block tytul %}Main page{% endblock %}
 {% block strona %}
-Main page
 {% if companys|length == 0 %}
         <h2>No companys asign</h2>
     {% else %}
         {% for company in companys %}
-            <a href="{% url 'company' company.id %}"><div class="card">
-                <h5 class="card-title">{{company}}</h5>
+            <a href="{% url 'company' company.id %}" class="text-decoration-none"><div class="my-list card">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="/media/{{ company.logo }}" class="company-logo">
+                    <h5 class="card-title mb-0">{{ company }}</h5>
+                </div>
             </div>
             </a>
         {% endfor %}
