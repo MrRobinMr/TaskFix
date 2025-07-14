@@ -1,10 +1,22 @@
 {% extends 'main.html' %}
 
-{% block tytul %}Company{% endblock %}
+{% block tytul %}{{company.name}}{% endblock %}
 {% block strona %}
 
-
-{{company.name}}
+<div class="card" style="width: 20rem; margin-top: 30px; margin-left: 50px; padding: 1rem;">
+    <h5 class="card-title">Tasks <a href="{% url 'task_new' %}" class="btn btn-primary me-2"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a></h5>
+    <div class="card-body">
+        <div id="according">
+            {% if tasks|length == 0 %}
+                <h5>No tasks</h5>
+            {% else %}
+                {% for task in tasks %}
+                    aa
+                {% endfor %}
+            {%endif%}
+        </div>
+    </div>
+</div>
 
 
 {% endblock %}

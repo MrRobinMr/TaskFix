@@ -15,7 +15,7 @@ class Company(models.Model):
 
 class Task(models.Model):
     title = models.CharField(max_length=64, blank=False, unique=True)
-    describtion = models.TextField()
+    description = models.TextField()
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=False, blank=False, related_name='task_company')
     assigned_users = models.ManyToManyField(User)
 
