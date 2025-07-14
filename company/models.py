@@ -8,7 +8,7 @@ class Company(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='companies_created')
     start_date = models.DateField(blank=False)
     is_active = models.BooleanField(blank=False)
-    logo = models.ImageField(upload_to='company_logo/')
+    logo = models.ImageField(upload_to='company_logo/', default='company_logo/default_company_logo.png')
 
     def __str__(self):
         return f"{self.name}"
