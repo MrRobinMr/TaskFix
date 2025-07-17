@@ -3,15 +3,36 @@
 {% block tytul %}{{company.name}}{% endblock %}
 {% block strona %}
 
-<div class="card" style="width: 20rem; margin-top: 30px; margin-left: 50px; padding: 1rem;">
+<div class="card" style="width: 90%; margin-top: 30px; margin-left: 50px; padding: 1rem;">
     <h5 class="card-title">Tasks <a href="{% url 'task_new' company.id %}" class="btn btn-primary me-2"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a></h5>
     <div class="card-body">
-        <div id="according">
+        <div id="accordion">
             {% if tasks|length == 0 %}
                 <h5>No tasks</h5>
             {% else %}
                 {% for task in tasks %}
-                    aa
+                    <div class="card">
+                      <div class="card-header" id="heading{{ forloop.counter }}">
+                        <h5 class="mb-0">
+                          <button class="btn btn-link {% if not forloop.first %}collapsed{% endif %}"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#collapse{{ forloop.counter }}"
+                                  aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}"
+                                  aria-controls="collapse{{ forloop.counter }}">
+                            {{ task.title }}
+                          </button>
+                        </h5>
+                      </div>
+
+                      <div id="collapse{{ forloop.counter }}"
+                           class="collapse {% if forloop.first %}show{% endif %}"
+                           aria-labelledby="heading{{ forloop.counter }}"
+                           data-bs-parent="#accordion">
+                        <div class="card-body">
+                          {{ task.description }}
+                        </div>
+                      </div>
+                    </div>
                 {% endfor %}
             {%endif%}
         </div>
