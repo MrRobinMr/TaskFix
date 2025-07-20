@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block tytul %}{{task.title}}{% endblock %}
+{% block strona %}
+
+<div class="card" style="width: 90%; margin-top: 30px; margin-left: 50px; padding: 1rem;">
+    <h5 class="card-title"><button onclick="history.back()"><--</button> {{ task.title }}</h5>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{task.description}}</li>
+            {% if users|length == 0 %}
+                <h5>No Asigned Users</h5>
+            {% else %}
+                <b>Asigned users:</b>
+                {% for user in users %}
+                    <li class="list-group-item">{{user.email}}</li>
+                {% endfor %}
+            {%endif%}
+        </ul>
+        <div class="d-flex">
+            <a href="{% url 'task_edit' task.id %}" class="btn btn-primary me-2">Edit</a>
+            <a href="#" class="btn btn-primary">Edit users</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

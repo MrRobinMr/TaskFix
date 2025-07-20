@@ -1,12 +1,12 @@
 {% extends 'edit.html' %}
 
-{% block tytul %}Profile edit{% endblock %}
+{% block tytul %}Task edit{% endblock %}
 
 
 {% block strona %}
   <div class="login-box">
     <button onclick="history.back()">🔙 Back</button>
-    <h2>Edit your profile</h2>
+    <h2>Edit task</h2>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
