@@ -22,3 +22,8 @@ class TaskEditForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ['title', 'description']
+
+class SubTaskForm(forms.ModelForm):
+    class Meta:
+        model = SubTask
+        fields = ['title']

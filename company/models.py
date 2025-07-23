@@ -23,7 +23,7 @@ class Task(models.Model):
         return f"{self.title}"
 
 class SubTask(models.Model):
-    title =models.CharField(max_length=64, blank=False)
+    title = models.CharField(max_length=64, blank=False)
     start_date = models.DateField(blank=False)
     end_date = models.DateField(blank=True)
     assigned_users = models.ManyToManyField(User)

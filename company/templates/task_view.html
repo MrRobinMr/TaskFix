@@ -17,9 +17,19 @@
                 {% endfor %}
             {%endif%}
         </ul>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Objectives: <a href="{% url 'subtask_new' id=task.id %}" class="btn btn-primary me-2"><i class="fa-solid fa-plus" style="color: #ffffff;"></i></a></b></li>
+            {% if subtasks|length == 0 %}
+                <h5>No objectives</h5>
+            {% else %}
+                {% for subtask in subtasks %}
+                    <li class="list-group-item">{{subtask.title}}</li>
+                {% endfor %}
+            {%endif%}
+        </ul>
         <div class="d-flex">
             <a href="{% url 'task_edit' task.id %}" class="btn btn-primary me-2">Edit</a>
-            <a href="#" class="btn btn-primary">Edit users</a>
+            <a href="#" class="btn btn-primary">Edit Users</a>
         </div>
     </div>
 </div>
